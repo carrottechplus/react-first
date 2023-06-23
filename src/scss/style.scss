@@ -1,31 +1,22 @@
 @import 'reset';
+@import url('https://fonts.googleapis.com/css2?family=Freehand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
 
-.wrap {
-	h1 {
-		font: normal 100px/1 'arial';
-		margin-bottom: 20px;
-	}
-	article {
-		// width: 200px;
-		border: 1px solid #777;
-		margin: 20px;
-		float: left;
+.fa-house {
+	font-size: 100px;
 
-		.bg {
-			width: 100%;
-			height: 200px;
-			background: gray;
-		}
-		.txt {
-			width: 100%;
-			padding: 20px;
-			background: white;
-			font: 15px/1 'arial';
-			color: #333;
-		}
+	path {
+		fill: hotpink;
+		stroke: black;
+		stroke-width: 10;
 	}
 }
 
-img {
-	width: 450px;
+.fa-thumbs-up {
+	font-size: 100px;
+	path {
+		fill: cornflowerblue;
+		stroke: black;
+		stroke-width: 10;
+	}
 }
