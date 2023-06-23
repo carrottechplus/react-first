@@ -1,31 +1,25 @@
-import { useState } from 'react';
+import pic1 from './img/pic1.jpg';
+import pic2 from './img/pic2.jpg';
+import pic3 from './img/pic3.jpg';
+
+import './scss/style.scss';
 
 function App() {
-	// const [first, setfirst] = useState(second)
-	const [Colors, setColors] = useState(['red', 'orange', 'green']);
+	const path = process.env.PUBLIC_URL; // public 폴더까지의 절대 경로값
 	return (
 		<>
-			<ul>
-				{Colors.map((color, idx) => {
-					return (
-						<li key={idx} style={{ color: color }}>
-							{color}
-						</li>
-					);
-				})}
-			</ul>
-			<button
-				onClick={() => {
-					//  기존 Colors에 들어 있는 참조형 자료인 배열값을 Deep Copy
-					const newColors = [...Colors];
-					// 원본은 유지한 채 복사가 된 배열값을 변경
-					newColors[2] = 'aqua';
-					// 변경된, 볷사되 배열값을 state변경함수로 변경 처리
-					setColors(newColors);
-				}}
-			>
-				세번째 목록의 색상을 aqua로 변경
-			</button>
+			<div>
+				<h1>src 폴더 안쪽에서 이미지 import</h1>
+				<img src={pic1} alt='pic1' />
+				<img src={pic2} alt='pic2' />
+				<img src={pic3} alt='pic3' />
+			</div>
+			<div>
+				<h1>public 폴더 안쪽에서 이미지 경로 연결</h1>
+				<img src={path + '/img/pic1.jpg'} alt='pic1' />
+				<img src={path + '/img/pic2.jpg'} alt='pic2' />
+				<img src={path + '/img/pic3.jpg'} alt='pic3' />
+			</div>
 		</>
 	);
 }
