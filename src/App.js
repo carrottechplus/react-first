@@ -1,40 +1,31 @@
-import Popup from './Popup';
 import { useState } from 'react';
 
 function App() {
-	// useState는 배열값을 리턴 [인수로 전달한 값을 state 담아서 첫번째값, 해당 state를 변경할 수 있는 전용 함수]
-	const [IsPop, setIsPop] = useState(false);
-	const [Color, setColor] = useState('#333'); //default 값
+	// const [first, setfirst] = useState(second)
+	const [Colors, setColors] = useState(['red', 'orange', 'green']);
 	return (
 		<>
-			<main>
-				<h1
-					style={{ color: Color }}
-					onClick={() => {
-						setIsPop(true);
-					}}
-				>
-					메인컨텐츠
-				</h1>
-				<button
-					onClick={() => {
-						setColor('red');
-					}}
-				>
-					제목 글자색을 red로 변경
-				</button>
-				<button
-					onClick={() => {
-						setColor('blue');
-					}}
-				>
-					제목 글자색을 blue로 변경
-				</button>
-				{/* {IsPop ? <Popup /> : null} */}
-
-				{/* 자식 컴포넌트로 setIsPop 이라는 state 변경 함수를 prop으로 전달 */}
-				{IsPop && <Popup setIsPop={setIsPop} />}
-			</main>
+			<ul>
+				{Colors.map((color, idx) => {
+					return (
+						<li key={idx} style={{ color: color }}>
+							{color}
+						</li>
+					);
+				})}
+			</ul>
+			<button
+				onClick={() => {
+					//  기존 Colors에 들어 있는 참조형 자료인 배열값을 Deep Copy
+					const newColors = [...Colors];
+					// 원본은 유지한 채 복사가 된 배열값을 변경
+					newColors[2] = 'aqua';
+					// 변경된, 볷사되 배열값을 state변경함수로 변경 처리
+					setColors(newColors);
+				}}
+			>
+				세번째 목록의 색상을 aqua로 변경
+			</button>
 		</>
 	);
 }
