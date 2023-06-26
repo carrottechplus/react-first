@@ -1,4 +1,8 @@
+import { useState } from 'react';
+
 function Popup({ setOpen }) {
+	const [Num, setNum] = useState(0);
+
 	const popupStyle = {
 		width: 600,
 		height: 300,
@@ -22,6 +26,23 @@ function Popup({ setOpen }) {
 			>
 				close
 			</button>
+			<h1>{Num}</h1>
+			<nav>
+				<button
+					onClick={() => {
+						setNum(Num - 1);
+					}}
+				>
+					감소
+				</button>
+				<button
+					onClick={() => {
+						setNum(Num + 1);
+					}}
+				>
+					증가
+				</button>
+			</nav>
 		</aside>
 	);
 }
