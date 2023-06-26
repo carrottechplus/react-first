@@ -2,9 +2,20 @@ import './scss/style.scss';
 import { useState, useRef } from 'react';
 
 function App() {
+	const [Num, setNum] = useState(0);
 	// 가상돔 요소가 담길 빈 참조객체를 미리 초기화
 	const article = useRef(null);
 	console.log(article);
+
+	const prev = () => {
+		setNum(Num - 1);
+		article.current.style.transform = `rotate(${45 * Num}deg)`;
+	};
+
+	const next = () => {
+		setNum(Num + 1);
+		article.current.style.transform = `rotate(${45 * Num}deg)`;
+	};
 
 	return (
 		<div className='wrap'>
@@ -15,8 +26,8 @@ function App() {
 			>
 				참조객체 확인
 			</button>
-			<button>왼쪽으로 회전</button>
-			<button>오른쪽으로 회전</button>
+			<button onClick={prev}>왼쪽으로 회전</button>
+			<button onClick={next}>오른쪽으로 회전</button>
 			{/* 참조하고 있는 가상돔요소를 useRef로 만든 참조객체와 연결 */}
 			<article ref={article}></article>
 		</div>
