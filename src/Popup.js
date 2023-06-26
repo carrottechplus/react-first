@@ -1,4 +1,4 @@
-function Popup({ setIsPop }) {
+function Popup({ setOpen }) {
 	const popupStyle = {
 		width: 600,
 		height: 300,
@@ -15,7 +15,13 @@ function Popup({ setIsPop }) {
 	};
 	return (
 		<aside style={popupStyle}>
-			<button>close</button>
+			<button
+				onClick={() => {
+					setOpen(false);
+				}}
+			>
+				close
+			</button>
 		</aside>
 	);
 }
