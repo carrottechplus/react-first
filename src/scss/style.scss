@@ -2,21 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Freehand&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
 
-.fa-house {
-	font-size: 100px;
-
-	path {
-		fill: hotpink;
-		stroke: black;
-		stroke-width: 10;
-	}
-}
-
-.fa-thumbs-up {
-	font-size: 100px;
-	path {
-		fill: cornflowerblue;
-		stroke: black;
-		stroke-width: 10;
+.wrap {
+	padding: 80px 100px;
+	article {
+		margin-top: 50px;
+		width: 200px;
+		height: 200px;
+		background: skyblue;
+		transition: 0.3s;
 	}
 }
